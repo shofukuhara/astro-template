@@ -1,0 +1,29 @@
+---
+type Props = {
+  srcPc: string;
+  srcSp: string;
+  alt?: string;
+  loading?: "lazy" | "eager";
+  classNames?: string;
+  style?: string;
+  pictureAttributes?: Record<string, string>;
+  imgAttributes?: Record<string, string>;
+};
+
+const { srcPc, srcSp, alt = "", loading = "lazy", classNames, style, pictureAttributes = {}, imgAttributes = {} }: Props = Astro.props;
+
+const safeStyle = style?.trim() ? style : undefined;
+
+// ページの階層に応じて相対パスを自動調整
+const depth = Astro.url.pathname.split("/").filter(Boolean).length;
+const prefix = depth > 0 ? "../".repeat(depth) : "./";
+const imgBase = prefix + "assets/images/";
+---
+
+<picture {...pictureAttributes} class={[classNames].filter(Boolean).join(" ")} style={safeStyle}>
+  <source srcset={`${imgBase}${srcSp}.avif 1x, ${imgBase}${srcSp}@2x.avif 2x`} type="image/avif" media="(max-width: 767.9px)" />
+  <source srcset={`${imgBase}${srcPc}.avif 1x, ${imgBase}${srcPc}@2x.avif 2x`} type="image/avif" media="(min-width: 768px)" />
+  <source srcset={`${imgBase}${srcSp}.webp 1x, ${imgBase}${srcSp}@2x.webp 2x`} type="image/webp" media="(max-width: 767.9px)" />
+  <source srcset={`${imgBase}${srcPc}.webp 1x, ${imgBase}${srcPc}@2x.webp 2x`} type="image/webp" media="(min-width: 768px)" />
+  <img src={`${imgBase}${srcSp}.webp`} srcset={`${imgBase}${srcSp}.webp 1x, ${imgBase}${srcSp}@2x.webp 2x`} alt={alt} loading={loading} class="i" {...imgAttributes} />
+</picture>

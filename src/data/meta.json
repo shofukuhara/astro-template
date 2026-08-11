@@ -1,0 +1,47 @@
+{
+  "default": {
+    "title": "サイト名",
+    "description": "デフォルトの説明",
+    "keywords": "サイト,デフォルト",
+    "og": {
+      "url": "https://example.com",
+      "title": "サイト名",
+      "description": "デフォルトの説明",
+      "image": "/images/default-og.jpg"
+    },
+    "icon": {
+      "favicon": "https://example.com/assets/images/favicon.ico",
+      "apple": "https://example.com/assets/images/apple-touch-icon.png"
+    }
+  },
+  "home": {
+    "title": "ホーム",
+    "description": "ホームページの説明",
+    "keywords": "ホーム,サイト",
+    "og": {
+      "url": "/home",
+      "title": "ホームページ",
+      "description": "このサイトのホームページです。",
+      "image": "/images/home-og.jpg"
+    },
+    "icon": {
+      "favicon": "https://example.com/assets/images/favicon.ico",
+      "apple": "https://example.com/assets/images/apple-touch-icon.png"
+    }
+  },
+  "about": {
+    "title": "About",
+    "description": "このサイトについての説明",
+    "keywords": "About,サイト情報",
+    "og": {
+      "url": "https://example.com/about",
+      "title": "Aboutページ",
+      "description": "このサイトのAboutページです。",
+      "image": "/images/about-og.jpg"
+    },
+    "icon": {
+      "favicon": "https://example.com/assets/images/favicon.ico",
+      "apple": "https://example.com/assets/images/apple-touch-icon.png"
+    }
+  }
+}

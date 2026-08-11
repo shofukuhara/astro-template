@@ -1,0 +1,31 @@
+---
+interface Props {
+  href: string;
+  target?: string;
+  className?: string;
+  text: string;
+  [key: string]: any;
+}
+
+const { href, target, className, text, ...data } = Astro.props;
+---
+
+<a href={href} rel={target === "_blank" ? "noopener noreferrer" : undefined} class:list={["c-button", className]} {...data}>
+  <span class="c-button_text" set:html={text} />
+</a>
+
+<style lang="scss" is:global>
+  .c-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include media(pc) {
+      width: pc_vw(320);
+      height: pc_vw(48);
+      background-color: #000;
+    }
+    .c-button_text {
+      color: #fff;
+    }
+  }
+</style>

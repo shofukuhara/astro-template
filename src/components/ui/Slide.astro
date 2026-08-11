@@ -1,0 +1,32 @@
+---
+type ImageItem = {
+  pc: string;
+  sp: string;
+  alt?: string;
+};
+
+type Props = {
+  images: ImageItem[];
+  className?: string;
+  text?: string;
+};
+
+const { images, className = "", text = "" }: Props = Astro.props;
+---
+
+<div class={`c-slide splide ${className}`} aria-label="スライドショー">
+  <div class="splide__track">
+    <ul class="splide__list">
+      {
+        images.map((img) => (
+          <li class="splide__slide">
+            <picture>
+              <source media="(min-width: 768px)" srcset={img.pc} />
+              <img src={img.sp} alt={img.alt ?? text} loading="lazy" />
+            </picture>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

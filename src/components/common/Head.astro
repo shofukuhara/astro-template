@@ -1,0 +1,60 @@
+---
+import metaData from "@/data/meta.json";
+import external from "@/data/external.json";
+
+const { pageMeta } = Astro.props;
+const { fonts, analytics } = external;
+const meta = metaData[pageMeta as keyof typeof metaData] || metaData["default"];
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{meta.title}</title>
+<meta name="description" content={meta.description} />
+<meta name="keywords" content={meta.keywords} />
+<!-- OG -->
+<meta property="og:url" content={meta.og.url} />
+<meta property="og:title" content={meta.og.title} />
+<meta property="og:description" content={meta.og.description} />
+<meta property="og:image" content={meta.og.image} />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={meta.og.title} />
+<meta name="twitter:description" content={meta.description} />
+<meta name="twitter:image" content={meta.og.image} />
+
+<link rel="canonical" href={meta.og.url} />
+<link rel="icon" href={meta.icon.favicon} />
+<link rel="apple-touch-icon" sizes="180x180" href={meta.icon.apple} />
+{
+  fonts.google.href && (
+    <>
+      {/* Google font */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link rel="preload" as="style" fetchpriority="high" href={fonts.google.href} />
+      <link rel="stylesheet" href={fonts.google.href} media="print" onload="this.media='all'" />
+    </>
+  )
+}
+
+{
+  analytics.googleAnalytics.id && (
+    <>
+      {/* Google Analytics */}
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${analytics.googleAnalytics.id}`} />
+      <script
+        set:html={`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag("js", new Date());
+          gtag("config", "${analytics.googleAnalytics.id}");
+        `}
+      />
+    </>
+  )
+}
+
+<script>
+  import "@/assets/scripts/index.js";
+</script>

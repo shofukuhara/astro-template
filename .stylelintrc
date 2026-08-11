@@ -1,0 +1,32 @@
+{
+  "extends": [
+    "stylelint-config-recommended-scss",
+    "stylelint-prettier/recommended"
+  ],
+  "plugins": ["stylelint-scss", "stylelint-order"],
+  "ignoreFiles": ["src/assets/css/foundation/setting/_reset.scss"],
+  "rules": {
+    "prettier/prettier": true,
+    "font-family-name-quotes": "always-where-recommended",
+    "shorthand-property-no-redundant-values": true,
+    "value-keyword-case": "lower",
+    "scss/operator-no-unspaced": null,
+    "no-descending-specificity": null,
+    "order/properties-alphabetical-order": null,
+    "no-unknown-animations": true,
+    "no-empty-source": null,
+    "order/order": [
+      "custom-properties",
+      "dollar-variables",
+      "at-variables",
+      "declarations",
+      "rules"
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["src/**/*.astro"],
+      "extends": ["stylelint-config-html/astro"]
+    }
+  ]
+}

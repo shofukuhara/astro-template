@@ -1,0 +1,25 @@
+---
+interface Props {
+  href?: string;
+  target?: string;
+  className?: string;
+  image_pc: string;
+  image_sp: string;
+  title: string;
+  description?: string;
+  [key: string]: any;
+}
+
+const { href, target, className, image_pc, image_sp, title, description, ...data } = Astro.props;
+---
+
+<a href={href} rel={target === "_blank" ? "noopener noreferrer" : undefined} class:list={["c-card", className]} {...data}>
+  <div class="c-card_tuhm">
+    <picture class="c-card_picture">
+      <source srcset={image_sp} type="image/webp" media="(max-width: 767px)" />
+      <img src={image_pc} alt="" decoding="async" loading="lazy" class="i" />
+    </picture>
+  </div>
+  <p class="c-card_title" set:html={title} />
+  <p class="c-card_description" set:html={description} />
+</a>

@@ -1,0 +1,14 @@
+@use "./viewport" as *;
+
+// メディアクエリで使用
+@mixin media($point) {
+  @if $point == sp {
+    @media (max-width: #{$breakpoint - 0.1}px) {
+      @content;
+    }
+  } @else if $point == pc {
+    @media (min-width: #{$breakpoint}px) {
+      @content;
+    }
+  }
+}

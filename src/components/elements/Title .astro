@@ -1,0 +1,17 @@
+---
+interface Props {
+  text?: string;
+  className?: string;
+  [key: string]: any;
+}
+
+const { text, className, ...data } = Astro.props;
+---
+
+<h1 set:html={text} class:list={["c-title", className]} {...data} />
+
+<style lang="scss" is:global>
+  .c-title {
+    font-size: pc_vw(32);
+  }
+</style>

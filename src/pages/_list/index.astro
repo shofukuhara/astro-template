@@ -1,0 +1,36 @@
+---
+import Base from "@/layouts/Base.astro";
+---
+
+<Base pageMeta="list" pageData="list">
+  <div class="list">
+    <h1>タイトル</h1>
+    <br />
+    <a href="/" class="link">TOP</a>
+    <p class="title">WORKS</p>
+    <a href="/works" class="link indent">一覧</a>
+    <a href="/works" class="link indent">詳細</a>
+    <a href="/works" class="link indent">詳細</a>
+    <p class="title">CONTACT</p>
+  </div>
+  <style slot="styles" is:inline>
+    .list {
+      padding: 160px 80px;
+      color: #000;
+      font-weight: 400;
+    }
+    .title {
+      font-size: 16px;
+      margin-top: 32px;
+    }
+    .indent {
+      margin-left: 24px;
+    }
+    .link {
+      font-size: 18px;
+      text-decoration: underline;
+      display: block;
+      margin-top: 16px;
+    }
+  </style>
+</Base>

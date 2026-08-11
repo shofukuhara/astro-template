@@ -1,0 +1,24 @@
+---
+import "@/assets/styles/index.scss";
+
+import Head from "@/components/common/Head.astro";
+const { pageData } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <Head pageMeta={Astro.props.pageMeta} />
+    <slot name="styles" />
+  </head>
+  <body data-page={pageData} data-os="" data-browser="" data-device="">
+    <slot />
+  </body></html
+>
+
+<style>
+  :root {
+    --vw: 100vw;
+    --vh: 100vh;
+  }
+</style>

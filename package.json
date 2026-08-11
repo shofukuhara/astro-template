@@ -1,0 +1,55 @@
+{
+  "name": "project",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "lint:css": "stylelint 'src/**/*.{scss,astro}' --config .stylelintrc",
+    "format": "prettier --write . --config .prettierrc.json --ignore-path .prettierignore",
+    "addLicense": "node ./config/_add-license.mjs",
+    "compressedImage": "node ./config/_compressed-min.mjs",
+    "dev": "astro dev",
+    "build": "npm run lint:css && astro build && npm run format && npm run addLicense",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4",
+    "astro": "^7.2.0",
+    "gsap": "^3.15.0",
+    "ua-parser-js": "^2.0.9"
+  },
+  "devDependencies": {
+    "@prettier/plugin-php": "^0.25.0",
+    "autoprefixer": "^10.5.0",
+    "css-declaration-sorter": "^7.4.0",
+    "dotenv": "^17.4.2",
+    "postcss": "^8.5.10",
+    "postcss-combine-media-query": "^2.1.0",
+    "postcss-html": "^1.8.1",
+    "postcss-merge-rules": "^7.0.10",
+    "postcss-sort-media-queries": "^6.5.0",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "rollup-plugin-license": "^3.7.1",
+    "sass-embedded": "^1.99.0",
+    "sharp": "^0.34.5",
+    "stylelint": "^17.9.0",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-property-sort-order-smacss": "^11.2.0",
+    "stylelint-config-recommended-scss": "^17.0.1",
+    "stylelint-order": "^8.1.1",
+    "stylelint-prettier": "^5.0.3",
+    "stylelint-scss": "^7.0.0",
+    "svgo": "^4.0.1"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%"
+  ],
+  "volta": {
+    "node": "24.19.0"
+  }
+}

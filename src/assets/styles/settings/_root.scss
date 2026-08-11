@@ -1,0 +1,9 @@
+@use "./font" as *;
+@use "./color" as *;
+@use "./viewport" as *;
+
+:root {
+  @include viewport;
+  @include font;
+  @include color;
+}

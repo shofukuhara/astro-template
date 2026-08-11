@@ -1,0 +1,13 @@
+---
+import Button from "@/components/ui/Button.astro";
+import Base from "@/layouts/Base.astro";
+const imgBase = "../assets/images/";
+---
+
+<Base pageMeta="about" pageData="about">
+  <!-- body内の要素 -->
+  <Button href="/about" className="c-button--primary" text="Aboutページへ" />
+  <img src={imgBase + "fv.png"} alt="ホームページのOG画像" class="w-64 h-auto" />
+</Base>
+
+<style lang="scss" is:global></style>
