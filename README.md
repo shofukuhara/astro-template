@@ -11,19 +11,7 @@ Astro製の静的サイト構築テンプレートです。
 ```bash
 # パッケージインストール
 npm install
-
-# 環境変数ファイルを作成
-cp .env.example .env.production
 ```
-
-`.env.production` を開き、納品ディレクトリを設定してください。
-
-```
-# 例: dist / htdocs / htdocs/project/name
-OUT_DIR=dist
-```
-
-> `.env.production` は `.gitignore` に含まれているため、Git管理外です。
 
 ## コマンド
 
@@ -48,8 +36,6 @@ npm run build
 2. Astroのビルド
 3. コードフォーマット（Prettier）
 4. JSファイルへのライセンスバナー付与
-
-出力先は `.env.production` の `OUT_DIR` に従います。
 
 ## 画像圧縮
 
@@ -151,7 +137,6 @@ import something from "@/components/something.astro";
 │   │       │   └── index.scss           # グローバルスタイルのインデックス
 │   │       └── settings/                # 設計設定
 │   │           ├── _color.scss          # カラー変数
-│   │           ├── _easings.scss        # イージング関数
 │   │           ├── _font.scss           # フォント設定
 │   │           ├── _function.scss       # SCSS関数
 │   │           ├── _mixin.scss          # SCSSミックスイン
@@ -190,8 +175,6 @@ import something from "@/components/something.astro";
 │       └── _list/                       # 一覧ページ
 │           └── index.astro
 │
-├── .env.example                         # 環境変数のテンプレート
-├── .env.production                      # 環境変数（Git管理外）
 ├── astro.config.mjs                     # Astro設定ファイル
 ├── postcss.config.cjs                   # PostCSS設定ファイル
 ├── tsconfig.json                        # TypeScript設定ファイル

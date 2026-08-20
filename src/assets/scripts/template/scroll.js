@@ -97,7 +97,10 @@ export class ScrollAnimation {
   }
 
   _createObserver(attr, animateFn, options = {}) {
-    const observer = new IntersectionObserver((entries, obs) => this._handleIntersect(entries, obs, animateFn, attr), { ...this.options, ...options });
+    const observer = new IntersectionObserver((entries, obs) => this._handleIntersect(entries, obs, animateFn, attr), {
+      ...this.options,
+      ...options,
+    });
 
     document.querySelectorAll(`[${attr}]`).forEach((element) => {
       observer.observe(element);

@@ -1,9 +1,5 @@
-import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
-
-// .env.production を読み込む
-dotenv.config({ path: ".env.production" });
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -11,7 +7,7 @@ const __dirname = path.dirname(__filename);
 // ============================
 // 基本設定
 // ============================
-export const OUT_DIR = process.env.OUT_DIR ?? "dist";
+export const OUT_DIR = "dist";
 
 // ============================
 // パス設定
